@@ -1,0 +1,17 @@
+certifi
+Click
+Flask
+gunicorn
+itsdangerous
+Jinja2
+MarkupSafe
+Werkzeug
+numpy
+scipy
+matplotlib
+pandas
+tpot
+seaborn
+cloudpickle
+scikit-learn
+joblib

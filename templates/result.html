@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>Virtual Metrology results</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+
+
+<style>
+.divScroll_yield {
+    overflow:scroll;
+    height:300px;
+    width:600px;
+    align-content: center;
+    margin: 0 auto;
+    padding: 20px;
+}
+</style>
+
+<style>
+.divScroll_sensor {
+    overflow:scroll;
+    height:300px;
+    width:450px;
+    align-content: center;
+    margin: 0 auto;
+    padding: 20px;
+}
+</style>
+
+
+<body>
+ <h2> Quantile Prediction for the Yields </h2>
+ <div class="divScroll_yield">
+     <div id="yields">
+     </div>
+
+     <script>
+         modalElement = document.getElementById('yields');
+
+        for (let i = 0; i < 3; i++) {
+            const imageElement = document.createElement('img');
+            imageElement.classList.add('modal-content-1');
+            imageElement.src = "static/plots/quantile_yield_simulation/yield_" + i + ".jpg";
+            imageElement.width = 600
+            imageElement.height = 300
+            modalElement.appendChild(imageElement);
+        }
+     </script>
+
+ </div>
+
+<h2> Simulated Sensor Readings </h2>
+ <div class="divScroll_sensor">
+     <div id="sensors">
+     </div>
+
+     <script>
+         modalElement = document.getElementById('sensors');
+
+        for (let i = 1; i < 100; i++) {
+            const imageElement = document.createElement('img');
+            imageElement.classList.add('modal-content-2');
+            imageElement.src = "static/plots/sensor_simulation/sensor_" + i + ".jpg";
+            imageElement.width = 450
+            imageElement.height = 300
+            modalElement.appendChild(imageElement);
+        }
+     </script>
+
+ </div>
+
+</body>
+</html>
