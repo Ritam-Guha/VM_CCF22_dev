@@ -60,4 +60,4 @@ jobs:
         with:
           app-name: 'VMWebApp'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_7C15700FEC0346F8BEC1F4D9EDB89D37 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_41D9545E725445F083464C8D40F2EE4C }}
