@@ -7,7 +7,7 @@ name: Build and deploy Python app to Azure Web App - VMWebApp
 on:
   push:
     branches:
-      - main
+      - master
   workflow_dispatch:
 
 jobs:
@@ -15,10 +15,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
 
       - name: Set up Python version
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v1
         with:
           python-version: '3.10'
 
@@ -26,20 +26,19 @@ jobs:
         run: |
           python -m venv venv
           source venv/bin/activate
-      
+
       - name: Install dependencies
         run: pip install -r requirements.txt
-        
+
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
-      
+
       - name: Upload artifact for deployment jobs
         uses: actions/upload-artifact@v2
         with:
           name: python-app
           path: |
-            . 
+            .
             !venv/
-
   deploy:
     runs-on: ubuntu-latest
     needs: build
@@ -53,11 +52,11 @@ jobs:
         with:
           name: python-app
           path: .
-          
+
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2
         id: deploy-to-webapp
         with:
           app-name: 'VMWebApp'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_41D9545E725445F083464C8D40F2EE4C }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_BA2E528F0C6442608782685BC0A241B0 }}
