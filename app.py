@@ -2,9 +2,10 @@ import numpy as np
 from flask import Flask, request, jsonify, render_template, url_for
 import os, csv
 import io
-from codes.run import run
+from .codes.run import run
 
 app = Flask(__name__)
+app.config['UPLOAD_FOLDER'] = f'codes/data'
 model = None
 
 
@@ -52,5 +53,4 @@ def predict():
 
 
 if __name__ == '__main__':
-    app.config['UPLOAD_FOLDER'] = f'codes/data'
     app.run(debug=True)
