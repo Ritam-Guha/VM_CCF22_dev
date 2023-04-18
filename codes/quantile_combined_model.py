@@ -1,7 +1,5 @@
 import torch
 import torch.nn as nn
-import pickle
-import numpy as np
 
 
 def scale_tensor(tensor,
