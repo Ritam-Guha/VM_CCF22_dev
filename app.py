@@ -1,11 +1,13 @@
-import numpy as np
-from flask import Flask, request, jsonify, render_template, url_for
-import os, csv
+import csv
 import io
-from .codes.run import run
+import os
+
+from VM_CCF22_dev.codes.run import run
+import VM_CCF22_dev.config as config
+from flask import Flask, request, render_template
 
 app = Flask(__name__)
-app.config['UPLOAD_FOLDER'] = f'codes/data'
+app.config['UPLOAD_FOLDER'] = f'{config.BASE_PATH}/codes/data'
 model = None
 
 

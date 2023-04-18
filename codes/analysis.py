@@ -1,6 +1,7 @@
 import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
+import VM_CCF22_dev.config as config
 matplotlib.use('SVG')
 
 
@@ -48,7 +49,7 @@ def plot_quantile_timesteps(predictions,
         axes.set_ylabel("prediction", fontsize=20)
         axes.grid()
         axes.legend(loc="lower right")
-        fig.savefig(f"static/plots/quantile_yield_simulation/{yield_list[i]}.jpg")
+        fig.savefig(f"{config.BASE_PATH}/static/plots/quantile_yield_simulation/{yield_list[i]}.jpg")
 
 
 def quantile_sep(yield_sim,
@@ -86,7 +87,7 @@ def plot_sensors(sensor_readings,
         ax.legend(loc="lower right")
         ax.set_xlabel("timesteps")
         ax.set_ylabel("sensor readings")
-        fig.savefig(f"static/plots/sensor_simulation/{sensor_list[i]}.jpg")
+        fig.savefig(f"{config.BASE_PATH}/static/plots/sensor_simulation/{sensor_list[i]}.jpg")
         plt.close(fig)
 
 

@@ -1,11 +1,12 @@
-from .quantile_combined_model import QuantileCombinedModel
-from .analysis import analyze
+from VM_CCF22_dev.codes.quantile_combined_model import QuantileCombinedModel
+from VM_CCF22_dev.codes.analysis import analyze
+import VM_CCF22_dev.config as config
 
 import torch
 import pandas as pd
 import pickle
 
-sensor_scaler = pickle.load(open(f"codes/sensor_scaler_obj.pickle", "rb"))
+sensor_scaler = pickle.load(open(f"{config.BASE_PATH}/codes/sensor_scaler_obj.pickle", "rb"))
 quantiles = [0.95, 0.5, 0.05]
 
 
@@ -22,8 +23,8 @@ def prepare_data(data_file):
 
 def run(file_name):
     model = QuantileCombinedModel().eval()
-    model.load_weights(f"codes/training_best.pt")
-    data, sensor_names = prepare_data(f"codes/data/{file_name}")
+    model.load_weights(f"{config.BASE_PATH}/codes/training_best.pt")
+    data, sensor_names = prepare_data(f"{config.BASE_PATH}/codes/data/{file_name}")
     gt_steps = data.shape[1]
     sensor_forward, _, yields = model(data)
     sensor_data = torch.cat((data, sensor_forward), dim=1).squeeze().detach()
