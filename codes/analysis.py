@@ -1,7 +1,7 @@
 import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
-import VM_CCF22_dev.config as config
+import config as config
 matplotlib.use('SVG')
 
 

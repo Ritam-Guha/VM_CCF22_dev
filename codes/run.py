@@ -1,6 +1,6 @@
-from VM_CCF22_dev.codes.quantile_combined_model import QuantileCombinedModel
-from VM_CCF22_dev.codes.analysis import analyze
-import VM_CCF22_dev.config as config
+from codes.quantile_combined_model import QuantileCombinedModel
+from codes.analysis import analyze
+import config as config
 
 import torch
 import pandas as pd

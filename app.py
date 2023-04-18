@@ -2,8 +2,8 @@ import csv
 import io
 import os
 
-from VM_CCF22_dev.codes.run import run
-import VM_CCF22_dev.config as config
+from codes.run import run
+import config as config
 from flask import Flask, request, render_template
 
 app = Flask(__name__)
