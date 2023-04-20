@@ -1,9 +1,18 @@
 import csv
 import io
 import os
+import shutil
 
 from run_vm import run
 from flask import Flask, request, render_template
+
+
+if os.path.isdir("data"):
+    shutil.rmtree("data")
+if os.path.isdir("plots"):
+    shutil.rmtree("plots")
+os.mkdir("data")
+os.mkdir("plots")
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = f'data'
