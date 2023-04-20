@@ -2,12 +2,11 @@ import csv
 import io
 import os
 
-from codes.run import run
-import config as config
+from run_vm import run
 from flask import Flask, request, render_template
 
 app = Flask(__name__)
-app.config['UPLOAD_FOLDER'] = f'{config.BASE_PATH}/codes/data'
+app.config['UPLOAD_FOLDER'] = f'data'
 model = None
 
 
