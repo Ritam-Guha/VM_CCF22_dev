@@ -9,10 +9,12 @@ from flask import Flask, request, render_template
 
 if os.path.isdir("data"):
     shutil.rmtree("data")
-if os.path.isdir("plots"):
-    shutil.rmtree("plots")
+if os.path.isdir("static/plots"):
+    shutil.rmtree("static/plots")
 os.mkdir("data")
-os.mkdir("plots")
+os.mkdir("static/plots")
+os.mkdir("static/plots/sensor_simulation")
+os.mkdir("static/plots/quantile_yield_simulation")
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = f'data'
