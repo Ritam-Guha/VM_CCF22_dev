@@ -21,7 +21,7 @@ def prepare_data(data_file):
     return data_tensor, data_cols
 
 
-def run(file_name):
+def run_vm(file_name):
     model = QuantileCombinedModel().eval()
     model.load_weights(f"training_best.pt")
     data, sensor_names = prepare_data(f"data/{file_name}")

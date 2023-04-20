@@ -3,7 +3,7 @@ import io
 import os
 import shutil
 
-from run_vm import run
+from run_vm import run_vm
 from flask import Flask, request, render_template
 
 
@@ -15,6 +15,7 @@ os.mkdir("data")
 os.mkdir("static/plots")
 os.mkdir("static/plots/sensor_simulation")
 os.mkdir("static/plots/quantile_yield_simulation")
+
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = f'data'
@@ -58,7 +59,7 @@ def predict():
             for row in reader:
                 writer.writerow(row)
 
-        run(filename)
+        run_vm(filename)
 
     # output = round(prediction[0], 2)
     return render_template('result.html')
