@@ -26,6 +26,7 @@ jobs:
         run: |
           python -m venv venv
           source venv/bin/activate
+
       - name: Install dependencies
         run: pip install -r requirements.txt
 
@@ -38,7 +39,6 @@ jobs:
           path: |
             .
             !venv/
-
   deploy:
     runs-on: ubuntu-latest
     needs: build
@@ -59,4 +59,4 @@ jobs:
         with:
           app-name: 'VMWebApp'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_41D9545E725445F083464C8D40F2EE4C }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_BA2E528F0C6442608782685BC0A241B0 }}
