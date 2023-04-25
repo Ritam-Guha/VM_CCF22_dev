@@ -31,8 +31,6 @@ jobs:
         run: pip install -r requirements.txt
         
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
-      - name: Zip artifact to upload
-        run: zip -r ${{ env.YOUR_ZIP_PACKAGE_NAME }} ${{ env.YOUR_AZURE_WEBAPP_PACKAGE_PATH }}
       
       - name: Upload artifact for deployment jobs
         uses: actions/upload-artifact@v2
@@ -62,4 +60,4 @@ jobs:
         with:
           app-name: 'VMWebApp'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_5D6E63B3E4A1442695DEA4D21DB4DE3D }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_42F6E697104D4CAA934C82835A228A5C }}
